@@ -10,7 +10,7 @@ function makeGuess() {
   const guessesLeft = document.getElementById("guessesLeft");
 
   if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-    message.textContent = "⛔ Enter a number between 1 and 100.";
+    message.textContent = "⛔ Please enter a number between 1 and 100.";
     return;
   }
 
@@ -18,21 +18,21 @@ function makeGuess() {
   totalGuessesUsed++;
 
   if (userGuess === randomNumber) {
-    message.textContent = `🎉 You got it in ${totalGuessesUsed} guess${totalGuessesUsed > 1 ? 'es' : ''}!`;
+    message.textContent = `🎉 You got it in ${totalGuessesUsed} guess${totalGuessesUsed > 1 ? 'es' : ''}! You're a genius!`;
     guessesLeft.textContent = "";
     overlay.style.backgroundColor = "rgba(88, 222, 95, 0.5)";
     disableInput();
   } else if (guesses === 0) {
-    message.textContent = `😢 You lost! It was ${randomNumber}.`;
+    message.textContent = `😢 You lost! The number was ${randomNumber}.`;
     guessesLeft.textContent = "";
     overlay.style.backgroundColor = "rgba(255, 100, 100, 0.5)";
     disableInput();
   } else {
     message.textContent = userGuess > randomNumber
-      ? "📉 Too high!"
-      : "📈 Too low!";
+      ? "📉 Too high! Try lower."
+      : "📈 Too low! Try higher.";
     guessesLeft.textContent = `Guesses left: ${guesses}`;
-    overlay.style.backgroundColor = "rgba(255, 100, 100, 0.3)";
+    overlay.style.backgroundColor = "rgba(255, 100, 100, 0.4)";
   }
 }
 
