@@ -29,7 +29,7 @@ function makeGuess() {
     disableInput();
   } else {
     message.textContent = userGuess > randomNumber
-      ? "📉 Too high! Try lower."
+      ? "📉 Too high! try lower than that."
       : "📈 Too low! Try higher.";
     guessesLeft.textContent = `Guesses left: ${guesses}`;
     overlay.style.backgroundColor = "rgba(255, 100, 100, 0.4)";
